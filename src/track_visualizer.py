@@ -157,24 +157,25 @@ class TrackVisualizer(object):
         self.ax_button_reset = self.fig.add_axes([0.67, 0.035, 0.06, 0.04])
 
         # Define the widgets
+        assets_dir = config["assets_dir"]
         self.textbox_frame = TextBox(self.ax_textbox, 'Set Frame ', initial=str(self.minimum_frame))
 
         self.button_previous2 = Button(self.ax_button_previous2, '',
-                                       image=plt.imread("../assets/button_icons/previous2.png"))
+                                       image=plt.imread(os.path.join(assets_dir, "button_icons", "previous2.png")))
         self.button_previous2.ax.axis('off')
 
         self.button_previous = Button(self.ax_button_previous, '',
-                                      image=plt.imread("../assets/button_icons/previous.png"))
+                                      image=plt.imread(os.path.join(assets_dir, "button_icons", "previous.png")))
         self.button_previous.ax.axis('off')
 
-        self.button_next = Button(self.ax_button_next, '', image=plt.imread("../assets/button_icons/next.png"))
+        self.button_next = Button(self.ax_button_next, '', image=plt.imread(os.path.join(assets_dir, "button_icons", "next.png")))
         self.button_next.ax.axis('off')
 
-        self.button_next2 = Button(self.ax_button_next2, '', image=plt.imread("../assets/button_icons/next2.png"))
+        self.button_next2 = Button(self.ax_button_next2, '', image=plt.imread(os.path.join(assets_dir, "button_icons", "next2.png")))
         self.button_next2.ax.axis('off')
 
-        self.play_image = plt.imread("../assets/button_icons/play.png")
-        self.stop_image = plt.imread("../assets/button_icons/stop.png")
+        self.play_image = plt.imread(os.path.join(assets_dir, "button_icons", "play.png"))
+        self.stop_image = plt.imread(os.path.join(assets_dir, "button_icons", "stop.png"))
         self.button_play = Button(self.ax_button_play, '', image=self.play_image)
         self.button_play.ax.axis('off')
 

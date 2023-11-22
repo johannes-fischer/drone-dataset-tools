@@ -1,3 +1,4 @@
+import os
 import pandas
 import glob
 import numpy as np
@@ -12,9 +13,9 @@ def read_all_recordings_from_csv(base_path: str = "../data/") -> List[dict]:
     :param base_path: Directory containing all csv files of the dataset
     :return: Tuple of tracks, tracks meta and recording meta
     """
-    tracks_files = sorted(glob.glob(base_path + "*_tracks.csv"))
-    tracks_meta_files = sorted(glob.glob(base_path + "*_tracksMeta.csv"))
-    recording_meta_files = sorted(glob.glob(base_path + "*_recordingMeta.csv"))
+    tracks_files = sorted(glob.glob(os.path.join(base_path, "*_tracks.csv")))
+    tracks_meta_files = sorted(glob.glob(os.path.join(base_path, "*_tracksMeta.csv")))
+    recording_meta_files = sorted(glob.glob(os.path.join(base_path, "*_recordingMeta.csv")))
 
     recordings = []
     for track_file, tracks_meta_file, recording_meta_file in zip(tracks_files,
